@@ -4,42 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory {
-    private List<Book> books = new ArrayList<>();
-    private List<Integer> quantity = new ArrayList<>();
-    private List<Integer> inventoryNumber = new ArrayList<>();
+    private  Book book;
+    private  int quantity;
+    private int inventoryNumber;
 
-    public Inventory(Book book, int quantity, int inventoryNumber) {
-        this.books.add(book);
-        this.quantity.add(quantity);
+    public Inventory(Book book, int quantity, int inventoryNumber)
+    {
+        this.book = book;
+        this.quantity = quantity;
         if (inventoryNumber != 0)
         {
-            this.inventoryNumber.add(0);
-        }
-        else
+            this.inventoryNumber = 0;
+        }else
             {
-                this.inventoryNumber.add(inventoryNumber);
+                this.inventoryNumber = inventoryNumber;
             }
+
     }
 
-    public void addBook(Book book,int quantity)
-    {
-        int x = inventoryNumber.size() +1;
-        this.books.add(book);
-        this.quantity.add(quantity);
-        this.inventoryNumber.add(x);
+    public Book getBook() {
+        return book;
     }
 
-    public void display(String title)
-    {
-        for (Book book:books)
-        {
-            if (book.getTitle().equalsIgnoreCase(title))
-            {
-                int x = books.indexOf(book);
-                System.out.println(book.getAuthor() + book.getTitle());
-                System.out.println(quantity.get(x));
-                System.out.println(inventoryNumber.get(x));
-            }
-        }
+    public int getQuantity() {
+        return quantity;
     }
+
+    public int getInventoryNumber() {
+        return inventoryNumber;
+    }
+
+    public void setInventoryNumber(int inventoryNumber)
+    {
+        this.inventoryNumber = inventoryNumber;
+    }
+
+
+
 }
